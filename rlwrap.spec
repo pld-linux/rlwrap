@@ -1,12 +1,12 @@
 Summary:	readline wrapper
 Summary(pl):	Nak³adka na readline
 Name:		rlwrap
-Version:	0.16
+Version:	0.17
 Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	http://utopia.knoware.nl/~hlub/rlwrap/%{name}-%{version}.tar.gz
-# Source0-md5:	1b303883d78f279a36bb35e8094e1490
+# Source0-md5:	ab1f819e295a207e22430687e1bc2ed0
 URL:		http://utopia.knoware.nl/~hlub/rlwrap/
 BuildRequires:	autoconf
 BuildRequires:	automake
