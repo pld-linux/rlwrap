@@ -24,8 +24,8 @@ user-defined (by way of completion word lists) and history completion.
 rlwrap jest 'readline wrapper'(nak³adka na readline), to znaczy ma³ym
 narzêdziem korzystaj±cym z GNU readline do umo¿liwienia edycji wej¶cia
 z klawiatury na ka¿de wej¶cie poleceñ. rlwrap mo¿e byæ u¿yteczny gdy
-potrzebujesz w³asnych definicji(i przy okazji listy uzupe³niania s³ów)
-oraz historii uzupe³niania.
+potrzebujesz w³asnych definicji (i przy okazji listy uzupe³niania
+s³ów) oraz historii uzupe³niania.
 
 %prep
 %setup -q
