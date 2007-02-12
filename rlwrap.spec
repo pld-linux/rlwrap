@@ -1,5 +1,5 @@
 Summary:	readline wrapper
-Summary(pl):	Nak≥adka na readline
+Summary(pl.UTF-8):   Nak≈Çadka na readline
 Name:		rlwrap
 Version:	0.24
 Release:	1
@@ -19,13 +19,13 @@ readline library to allow the editing of keyboard input to any
 command's stdin. rlwrap should be especially useful when you need
 user-defined (by way of completion word lists) and history completion.
 
-%description -l pl
-rlwrap to 'readline wrapper' (nak≥adka na readline), czyli ma≥e
-narzÍdzie korzystaj±ce z biblioteki GNU readline do umoøliwienia
-edycji wej∂cia z klawiatury na standardowe wej∂cie dowolnego
-polecenia. rlwrap moøe byÊ uøyteczny gdy potrzebujemy w≥asnych
-definicji (i przy okazji listy uzupe≥niania s≥Ûw) oraz historii
-uzupe≥niania.
+%description -l pl.UTF-8
+rlwrap to 'readline wrapper' (nak≈Çadka na readline), czyli ma≈Çe
+narzƒôdzie korzystajƒÖce z biblioteki GNU readline do umo≈ºliwienia
+edycji wej≈õcia z klawiatury na standardowe wej≈õcie dowolnego
+polecenia. rlwrap mo≈ºe byƒá u≈ºyteczny gdy potrzebujemy w≈Çasnych
+definicji (i przy okazji listy uzupe≈Çniania s≈Ç√≥w) oraz historii
+uzupe≈Çniania.
 
 %prep
 %setup -q
