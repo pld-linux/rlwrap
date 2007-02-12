@@ -1,5 +1,5 @@
 Summary:	readline wrapper
-Summary(pl.UTF-8):   Nakładka na readline
+Summary(pl.UTF-8):	Nakładka na readline
 Name:		rlwrap
 Version:	0.24
 Release:	1
