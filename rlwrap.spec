@@ -1,16 +1,18 @@
 Summary:	readline wrapper
 Summary(pl.UTF-8):	Nakładka na readline
 Name:		rlwrap
-Version:	0.30
+Version:	0.37
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://utopia.knoware.nl/~hlub/rlwrap/%{name}-%{version}.tar.gz
-# Source0-md5:	03d8bd4996945ea32d3c7d5dc38c956e
+# Source0-md5:	04cd6e2c257eb5a86b297f2ebf91dbbf
+Patch0:		%{name}-tinfo.patch
 URL:		http://utopia.knoware.nl/~hlub/rlwrap/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
 BuildRequires:	readline-devel >= 4.2
+Requires:	readline >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,9 +31,9 @@ uzupełniania.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -44,6 +46,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_datadir}/rlwrap/filters/{README,RlwrapFilter.3pm}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -52,7 +56,24 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS BUGS NEWS README
 %attr(755,root,root) %{_bindir}/%{name}
 %dir %{_datadir}/rlwrap
-%{_datadir}/rlwrap/coqtop
-%{_datadir}/rlwrap/ftp
-%{_datadir}/rlwrap/testclient
-%{_mandir}/man?/*
+%dir %{_datadir}/rlwrap/completions
+%{_datadir}/rlwrap/completions/coqtop
+%{_datadir}/rlwrap/completions/testclient
+%dir %{_datadir}/rlwrap/filters
+%{_datadir}/rlwrap/filters/RlwrapFilter.pm
+%attr(755,root,root) %{_datadir}/rlwrap/filters/censor_passwords
+%attr(755,root,root) %{_datadir}/rlwrap/filters/count_in_prompt
+%attr(755,root,root) %{_datadir}/rlwrap/filters/ftp_filter
+%attr(755,root,root) %{_datadir}/rlwrap/filters/history_format
+%attr(755,root,root) %{_datadir}/rlwrap/filters/listing
+%attr(755,root,root) %{_datadir}/rlwrap/filters/logger
+%attr(755,root,root) %{_datadir}/rlwrap/filters/null
+%attr(755,root,root) %{_datadir}/rlwrap/filters/paint_prompt
+%attr(755,root,root) %{_datadir}/rlwrap/filters/pipeline
+%attr(755,root,root) %{_datadir}/rlwrap/filters/pipeto
+%attr(755,root,root) %{_datadir}/rlwrap/filters/scrub_prompt
+%attr(755,root,root) %{_datadir}/rlwrap/filters/simple_macro
+%attr(755,root,root) %{_datadir}/rlwrap/filters/template
+%attr(755,root,root) %{_datadir}/rlwrap/filters/unbackspace
+%{_mandir}/man1/rlwrap.1*
+%{_mandir}/man3/RlwrapFilter.3pm*
