@@ -2,7 +2,7 @@ Summary:	readline wrapper
 Summary(pl.UTF-8):	Nakładka na readline
 Name:		rlwrap
 Version:	0.37
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://utopia.knoware.nl/~hlub/rlwrap/%{name}-%{version}.tar.gz
