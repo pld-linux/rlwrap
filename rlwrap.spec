@@ -1,17 +1,17 @@
 Summary:	readline wrapper
 Summary(pl.UTF-8):	Nakładka na readline
 Name:		rlwrap
-Version:	0.37
-Release:	2
+Version:	0.41
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://utopia.knoware.nl/~hlub/rlwrap/%{name}-%{version}.tar.gz
-# Source0-md5:	04cd6e2c257eb5a86b297f2ebf91dbbf
-Patch0:		%{name}-tinfo.patch
+# Source0-md5:	8d1f3f8e634d55725645e6750c54e5f2
 URL:		http://utopia.knoware.nl/~hlub/rlwrap/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
 BuildRequires:	readline-devel >= 4.2
+BuildRequires:	sed >= 4.0
 Requires:	readline >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -31,8 +31,10 @@ uzupełniania.
 
 %prep
 %setup -q
-%patch0 -p1
 
+%{__sed} -i -e '1s,#!/usr/bin/env perl,#!/usr/bin/perl,' \
+	test/testclient \
+	filters/*
 %build
 %{__aclocal}
 %{__autoconf}
@@ -53,7 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS NEWS README
+%doc AUTHORS BUGS NEWS PLEA README TODO
 %attr(755,root,root) %{_bindir}/%{name}
 %dir %{_datadir}/rlwrap
 %dir %{_datadir}/rlwrap/completions
